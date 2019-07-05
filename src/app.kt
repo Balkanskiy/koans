@@ -16,4 +16,4 @@ class JavaCode {
 }
 
 fun containsEven(collection: Collection<Int>) = collection.any { it % 2 === 0 }
-fun containsEven(collection: Collection<Int>) = collection.any { i -> i % 2 === 0 }
+fun containsEvenWithIt(collection: Collection<Int>) = collection.any { i -> i % 2 === 0 }
