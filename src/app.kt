@@ -17,3 +17,6 @@ class JavaCode {
 
 fun containsEven(collection: Collection<Int>) = collection.any { it % 2 === 0 }
 fun containsEvenWithIt(collection: Collection<Int>) = collection.any { i -> i % 2 === 0 }
+
+val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+fun getPattern(): String = """\d{2} $month \d{4}""";
