@@ -85,3 +85,10 @@ fun getList(): List<Int> {
     })
     return arrayList
 }
+
+//sort with lamda
+fun getListWithLambda(): List<Int> {
+    val arrayList = arrayListOf(1, 5, 2)
+    Collections.sort(arrayList, { x, y -> y.compareTo(x) })
+    return arrayList
+}
