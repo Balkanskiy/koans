@@ -92,3 +92,23 @@ fun getListWithLambda(): List<Int> {
     Collections.sort(arrayList, { x, y -> y.compareTo(x) })
     return arrayList
 }
+
+//override operators
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
+    override operator fun compareTo(other: MyDate): Int {
+        if(year != other.year) {
+            return year - other.year
+        }
+
+        if(month != other.month) {
+            return month - other.month
+        }
+
+        if(dayOfMonth != other.dayOfMonth) {
+            return dayOfMonth - other.dayOfMonth
+        }
+
+        return 0
+
+    }
+}
