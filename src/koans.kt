@@ -112,3 +112,46 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
 
     }
 }
+
+// test ranges
+class DateRange(val start: MyDate, val endInclusive: MyDate) {
+    operator fun contains(date: MyDate): Boolean {
+        if (start.year == date.year) {
+            if(start.month == date.month) {
+                if (start.dayOfMonth == date.dayOfMonth) {
+                    return true
+                }
+                return start.dayOfMonth < date.dayOfMonth
+            }
+
+            return start.month < date.month
+        }
+
+        if (date.year == endInclusive.year) {
+            if(date.month == endInclusive.month) {
+                if (date.dayOfMonth == endInclusive.dayOfMonth) {
+                    return true
+                }
+            }
+
+            return date.month < endInclusive.month
+        }
+
+        return start.year < date.year && date.year < endInclusive.year
+
+        // or if "<" operator was overridden
+        //return start <= date && date <= endInclusive
+    }
+}
+
+
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in DateRange(first, last)
+}
+// check range
+//val dateStart = MyDate(2014,1,11)
+//val dateEnd = MyDate(2019,12,20)
+//val currentDate = MyDate(2019,11,31)
+//
+//
+//println(checkInRange(currentDate, dateStart, dateEnd))
